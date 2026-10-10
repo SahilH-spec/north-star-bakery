@@ -1,0 +1,735 @@
+/* ==========================================================================
+   North Star Bakery - styles.css
+   Touchstone 3: visual design system + responsive layout
+   Approach: mobile-first. Base styles are for phones; media queries at the
+   bottom add the larger-screen layouts.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   4 colors, 2 font families, and a small spacing scale
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors (4) */
+  --cream: #fbf5ec;   /* page background, text on dark areas */
+  --brown: #684637;   /* body text, headings, header/footer (from the logo) */
+  --tan: #c19e84;     /* borders and dividers only (from the logo's wheat) */
+  --crust: #9c4f25;   /* links and call-to-action buttons */
+
+  /* Fonts (2) */
+  --font-heading: "Lora", Georgia, "Times New Roman", serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 2rem;
+  --space-xl: 3rem;
+
+  --radius: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Base / reset
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;               /* Flexbox: keeps the footer at the bottom */
+  flex-direction: column;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;        /* about 17px for easy reading */
+  line-height: 1.65;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+video,
+audio {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography and links
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--brown);
+}
+
+h1 {
+  margin: 0 0 var(--space-m);
+  font-size: 2.125rem;
+}
+
+h2 {
+  margin: 0 0 var(--space-m);
+  padding-bottom: var(--space-s);
+  border-bottom: 3px solid var(--tan);
+  font-size: 1.6rem;
+}
+
+h3 {
+  margin: 0 0 var(--space-s);
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0 0 var(--space-m);
+}
+
+a {
+  color: var(--crust);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--brown);
+  text-decoration-thickness: 3px;
+}
+
+/* Visible keyboard focus on everything interactive */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+video:focus-visible,
+audio:focus-visible {
+  outline: 3px solid var(--crust);
+  outline-offset: 3px;
+}
+
+/* Skip link: hidden until it receives keyboard focus */
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: var(--space-s);
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  border-radius: 0 0 8px 8px;
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Header and navigation (Flexbox)
+   -------------------------------------------------------------------------- */
+body > header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  background: var(--cream);
+  border-bottom: 4px solid var(--tan);
+}
+
+/* The logo file has a white background, so multiply blends it into the cream */
+body > header img {
+  width: 120px;
+  height: auto;
+  border-radius: 0;
+  mix-blend-mode: multiply;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-s);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: 0.6rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  color: var(--brown);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover {
+  border-color: var(--tan);
+  color: var(--brown);
+}
+
+/* The page you are on */
+nav a[aria-current="page"] {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+/* --------------------------------------------------------------------------
+   5. Main content area
+   -------------------------------------------------------------------------- */
+main {
+  flex: 1;                     /* fills the space between header and footer */
+  width: 100%;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: var(--space-l) var(--space-m);
+}
+
+main > section,
+main > div {
+  margin-bottom: var(--space-xl);
+}
+
+/* --------------------------------------------------------------------------
+   6. Reusable components
+   -------------------------------------------------------------------------- */
+
+/* Buttons (links and form button) */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--crust);
+  border-radius: 999px;
+  background: var(--crust);
+  color: var(--cream);
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--brown);
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.button-outline {
+  background: transparent;
+  border-color: var(--brown);
+  color: var(--brown);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Two-part section: text next to an image on wide screens */
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+.split > img {
+  width: 100%;
+}
+
+/* Bordered boxes */
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-list li,
+.card-section > article,
+address,
+dl {
+  padding: var(--space-m);
+  border: 2px solid var(--tan);
+  border-radius: var(--radius);
+}
+
+.feature-list strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+}
+
+/* Sections that hold a heading followed by several cards */
+.card-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+}
+
+.card-section > h2,
+.card-section > p {
+  flex: 1 1 100%;
+  margin: 0;
+}
+
+.card-section > article {
+  flex: 1 1 15rem;
+}
+
+.card-section h3 {
+  margin-top: 0;
+}
+
+.card-section article p {
+  margin-bottom: 0;
+}
+
+.price {
+  color: var(--crust);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   7. Page-specific sections
+   -------------------------------------------------------------------------- */
+
+/* Home: featured item on a dark band */
+.featured {
+  padding: var(--space-l) var(--space-m);
+  border-radius: var(--radius);
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.featured h2,
+.featured h3 {
+  color: var(--cream);
+}
+
+.featured h2 {
+  border-bottom-color: var(--tan);
+}
+
+.featured .button {
+  border-color: var(--cream);
+  background: var(--cream);
+  color: var(--brown);
+}
+
+.featured .button:hover {
+  background: transparent;
+  color: var(--cream);
+}
+
+.featured a:focus-visible {
+  outline-color: var(--cream);
+}
+
+.featured-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.featured-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Home: hours and address */
+.visit-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  margin-bottom: var(--space-m);
+}
+
+address {
+  margin: 0;
+  font-style: normal;
+}
+
+address + p {
+  margin-top: var(--space-m);
+}
+
+dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+dt,
+dd {
+  flex: 1 1 50%;
+  margin: 0;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--tan);
+}
+
+dt {
+  font-weight: 700;
+}
+
+dt:last-of-type,
+dd:last-of-type {
+  border-bottom: 0;
+}
+
+/* Products: signature loaf figure */
+figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  max-width: 28rem;
+  margin: 0;
+}
+
+figcaption {
+  padding-left: var(--space-m);
+  border-left: 4px solid var(--tan);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.signature-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.signature-body p {
+  margin: 0;
+}
+
+/* Products: numbered "How to Pre-Order" steps */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  position: relative;
+  padding: var(--space-m) var(--space-m) var(--space-m) 4rem;
+  border: 2px solid var(--tan);
+  border-radius: var(--radius);
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  top: var(--space-m);
+  left: var(--space-m);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--brown);
+  color: var(--cream);
+  font-weight: 700;
+}
+
+/* Contact: layout wrappers */
+.contact-columns,
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+.contact-info > section {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Forms
+   -------------------------------------------------------------------------- */
+fieldset {
+  min-width: 0;
+  margin: 0 0 var(--space-m);
+  padding: var(--space-m);
+  border: 2px solid var(--tan);
+  border-radius: var(--radius);
+}
+
+legend {
+  padding: 0 var(--space-s);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+fieldset p {
+  margin: 0 0 var(--space-m);
+}
+
+fieldset p:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;         /* comfortable tap target on phones */
+  padding: 0.65rem 0.75rem;
+  border: 2px solid var(--brown);
+  border-radius: 8px;
+  background: var(--cream);
+  color: var(--brown);
+  font: inherit;
+}
+
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--crust);
+  border-style: dashed;
+}
+
+::placeholder {
+  color: var(--brown);
+  font-style: italic;
+  opacity: 1;
+}
+
+.hint {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Hours table
+   -------------------------------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  padding-bottom: var(--space-s);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--tan);
+  text-align: left;
+}
+
+/* --------------------------------------------------------------------------
+   10. Footer (Flexbox)
+   -------------------------------------------------------------------------- */
+body > footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  padding: var(--space-l) var(--space-m);
+  background: var(--brown);
+  color: var(--cream);
+  text-align: center;
+}
+
+body > footer p {
+  margin: 0;
+}
+
+body > footer a {
+  color: var(--cream);
+}
+
+body > footer a:hover {
+  color: var(--cream);
+  text-decoration-thickness: 3px;
+}
+
+body > footer a:focus-visible {
+  outline-color: var(--cream);
+}
+
+/* ==========================================================================
+   MEDIA QUERY 1: tablets and up (800px)
+   This matches the 800px breakpoint used by the <picture> element in
+   index.html, so the wide featured image and the two-column layouts switch
+   on together.
+   ========================================================================== */
+@media (min-width: 50em) {
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  h2 {
+    font-size: 1.85rem;
+  }
+
+  /* Header: logo on the left, navigation on the right */
+  body > header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-m) var(--space-l);
+  }
+
+  body > header img {
+    width: 150px;
+  }
+
+  nav ul {
+    justify-content: flex-end;
+  }
+
+  main {
+    padding: var(--space-xl) var(--space-l);
+  }
+
+  /* Text and image side by side */
+  .split {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .split > div,
+  .split > img {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* Featured item: image on the left, text on the right */
+  .featured {
+    padding: var(--space-xl);
+  }
+
+  .featured-body {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-l);
+  }
+
+  .featured-body picture {
+    flex: 1 1 55%;
+  }
+
+  .featured-body picture img {
+    width: 100%;
+  }
+
+  .featured-text {
+    flex: 1 1 45%;
+  }
+
+  /* Three "known for" boxes in one row */
+  .feature-list {
+    flex-flow: row wrap;
+  }
+
+  .feature-list li {
+    flex: 1 1 14rem;
+  }
+
+  /* Address and hours side by side */
+  .visit-details {
+    flex-direction: row;
+  }
+
+  .visit-details > * {
+    flex: 1 1 0;
+  }
+
+  /* Signature loaf: photo beside its description */
+  .signature-body {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-l);
+  }
+
+  .signature-body > * {
+    flex: 1 1 0;
+  }
+
+  /* Pre-order steps in one row */
+  .steps {
+    flex-direction: row;
+  }
+
+  .steps li {
+    flex: 1 1 0;
+  }
+
+  /* Contact: form on the left, location and hours on the right */
+  .contact-columns {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .contact-form {
+    flex: 3 1 0;
+    min-width: 0;
+  }
+
+  .contact-info {
+    flex: 2 1 0;
+    min-width: 0;
+  }
+
+  /* Footer: details spread across one row */
+  body > footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: var(--space-l);
+    text-align: left;
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERY 2: large desktops (1024px)
+   ========================================================================== */
+@media (min-width: 64em) {
+  body {
+    font-size: 1.125rem;
+  }
+
+  h1 {
+    font-size: 3.25rem;
+  }
+
+  .card-section > article {
+    flex-basis: 18rem;
+  }
+}

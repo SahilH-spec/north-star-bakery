@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Browse North Star Bakery's handmade breads, pastries, and cakes, with price ranges and pre-order information.">
   <title>Products | North Star Bakery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito:wght@400;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header>
-    <img src="images/bakery-logo.png" alt="North Star Bakery logo: a loaf of bread with a wheat sprig inside" width="220" height="188">
+    <img src="bakery-logo_c.png" alt="North Star Bakery logo: a loaf of bread with a wheat sprig inside" width="220" height="188">
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -22,24 +26,29 @@
   </header>
 
   <main id="main-content">
-    <section aria-labelledby="products-intro-heading">
-      <h1 id="products-intro-heading">Our Breads, Pastries &amp; Cakes</h1>
-      <p>Everything at North Star Bakery is made by hand, in small batches, every morning. Browse our categories below. We do not offer online checkout. To reserve an item, send us a pre-order request and we will confirm your pickup time.</p>
-      <p><a href="contact.html">Send a pre-order request</a></p>
-      <img src="images/bakery-bread.jpg" alt="Golden-crusted sourdough and country loaves stacked in the glass bakery case with handwritten price tags" width="400" height="400">
+    <section class="split" aria-labelledby="products-intro-heading">
+      <div>
+        <h1 id="products-intro-heading">Our Breads, Pastries &amp; Cakes</h1>
+        <p>Everything at North Star Bakery is made by hand, in small batches, every morning. Browse our categories below. We do not offer online checkout. To reserve an item, send us a pre-order request and we will confirm your pickup time.</p>
+        <p><a class="button" href="contact.html">Send a pre-order request</a></p>
+      </div>
+      <img src="bakery-bread_c.png" alt="Golden-crusted sourdough and country loaves stacked in the glass bakery case with handwritten price tags" width="400" height="400">
     </section>
 
-    <section aria-labelledby="signature-heading">
+    <section class="signature" aria-labelledby="signature-heading">
       <h2 id="signature-heading">Our Signature Loaf</h2>
-      <figure>
-        <img src="images/bakery-signature-loaf.jpg" alt="A round, dark-crusted loaf dusted with flour resting on a white and tan checked linen cloth" width="400" height="400">
-        <figcaption>Signature Loaf: our slow-fermented country boule, hand-scored and baked fresh every morning.</figcaption>
-      </figure>
+      <div class="signature-body">
+        <figure>
+          <img src="bakery-signature-loaf_c.png" alt="A round, dark-crusted loaf dusted with flour resting on a white and tan checked linen cloth" width="400" height="400">
+          <figcaption>Signature Loaf: our slow-fermented country boule, hand-scored and baked fresh every morning.</figcaption>
+        </figure>
+        <p>Our most requested loaf is made with a long, slow rise for a crackling crust and a soft, tangy crumb. Pre-order it by the day before pickup to make sure yours is waiting for you.</p>
+      </div>
     </section>
 
-    <section aria-labelledby="breads-heading">
+    <section class="card-section" aria-labelledby="breads-heading">
       <h2 id="breads-heading">Breads</h2>
-      <p>Price range: $6 to $12 per loaf</p>
+      <p class="price">Price range: $6 to $12 per loaf</p>
       <article>
         <h3>Signature Country Loaf</h3>
         <p>A crackling crust and a soft, tangy crumb from a long, slow fermentation.</p>
@@ -54,9 +63,9 @@
       </article>
     </section>
 
-    <section aria-labelledby="pastries-heading">
+    <section class="card-section" aria-labelledby="pastries-heading">
       <h2 id="pastries-heading">Pastries &amp; Cookies</h2>
-      <p>Price range: $3 to $6 each, or $18 to $40 for a dozen</p>
+      <p class="price">Price range: $3 to $6 each, or $18 to $40 for a dozen</p>
       <article>
         <h3>Butter Croissants &amp; Morning Pastries</h3>
         <p>Flaky, golden, and made fresh for the morning commute.</p>
@@ -71,9 +80,9 @@
       </article>
     </section>
 
-    <section aria-labelledby="cakes-heading">
+    <section class="card-section" aria-labelledby="cakes-heading">
       <h2 id="cakes-heading">Cakes &amp; Celebration Orders</h2>
-      <p>Price range: $28 to $65 for whole cakes, with custom event orders quoted individually</p>
+      <p class="price">Price range: $28 to $65 for whole cakes, with custom event orders quoted individually</p>
       <article>
         <h3>Classic Celebration Cakes</h3>
         <p>Vanilla, chocolate, and lemon cakes decorated by hand for birthdays and special days.</p>
@@ -86,7 +95,7 @@
 
     <section aria-labelledby="order-heading">
       <h2 id="order-heading">How to Pre-Order</h2>
-      <ol>
+      <ol class="steps">
         <li>Fill out the <a href="contact.html">pre-order request form</a> with your item details and pickup date.</li>
         <li>We will confirm availability and your pickup time by email.</li>
         <li>Pay and pick up in the shop. No online checkout is needed.</li>

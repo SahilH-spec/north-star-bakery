@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn the story of North Star Bakery, how we source our ingredients, and meet the people who bake your bread.">
   <title>About Us | North Star Bakery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito:wght@400;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header>
-    <img src="images/bakery-logo.png" alt="North Star Bakery logo: a loaf of bread with a wheat sprig inside" width="220" height="188">
+    <img src="bakery-logo_c.png" alt="North Star Bakery logo: a loaf of bread with a wheat sprig inside" width="220" height="188">
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -28,19 +32,19 @@
       <p>Today we are still a small, family-run shop. We bake before sunrise so that commuters, families, and neighbors can start their day with something fresh and handmade.</p>
     </section>
 
-    <section aria-labelledby="video-heading">
+    <section class="behind-scenes" aria-labelledby="video-heading">
       <h2 id="video-heading">Behind the Scenes</h2>
       <p>Watch fresh loaves come out of our oven. This short video has no sound.</p>
-      <video controls preload="metadata" width="640" poster="images/bakery-storefront.jpg">
-        <source src="media/bakery-behind-scenes.mp4" type="video/mp4">
-        <p>Your browser does not support the video element. This short, silent video shows a baker sliding freshly baked round loaves out of the oven on a wooden peel. You can <a href="media/bakery-behind-scenes.mp4">download the behind-the-scenes video (MP4)</a> to watch it.</p>
+      <video controls preload="metadata" width="640" poster="bakery-storefront_c.png">
+        <source src="bakery-behind-scenes_c.mp4" type="video/mp4">
+        <p>Your browser does not support the video element. This short, silent video shows a baker sliding freshly baked round loaves out of the oven on a wooden peel. You can <a href="bakery-behind-scenes_c.mp4">download the behind-the-scenes video (MP4)</a> to watch it.</p>
       </video>
     </section>
 
     <section aria-labelledby="sourcing-heading">
       <h2 id="sourcing-heading">Our Sourcing Philosophy</h2>
       <p>Good bread starts with good ingredients, and we keep our list short and honest.</p>
-      <ul>
+      <ul class="feature-list">
         <li><strong>Local first:</strong> we buy flour, eggs, and dairy from regional farms and mills whenever we can.</li>
         <li><strong>Simple ingredients:</strong> flour, water, salt, and time for our breads, with no artificial preservatives.</li>
         <li><strong>Seasonal baking:</strong> our pastries and cakes follow the harvest, so the fruit is always at its best.</li>
@@ -48,7 +52,7 @@
       </ul>
     </section>
 
-    <section aria-labelledby="staff-heading">
+    <section class="card-section" aria-labelledby="staff-heading">
       <h2 id="staff-heading">Meet Our Bakers</h2>
       <article>
         <h3>Maria Alvarez, Head Baker</h3>
@@ -66,7 +70,8 @@
 
     <section aria-labelledby="community-heading">
       <h2 id="community-heading">Come Say Hello</h2>
-      <p>We would love to meet you. <a href="contact.html">Contact us</a> with a question or a pre-order request, or stop by the shop.</p>
+      <p>We would love to meet you. Send us a question or a pre-order request, or stop by the shop.</p>
+      <p><a class="button" href="contact.html">Contact Us</a></p>
     </section>
   </main>
 
