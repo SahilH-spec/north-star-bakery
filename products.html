@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito:wght@400;700&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -35,6 +36,17 @@
       <img src="bakery-bread_c.png" alt="Golden-crusted sourdough and country loaves stacked in the glass bakery case with handwritten price tags" width="400" height="400">
     </section>
 
+    <section class="preorder-list" id="preorder-list" aria-labelledby="list-heading">
+      <h2 id="list-heading">My Pre-Order List</h2>
+      <p id="list-status" aria-live="polite">Loading your list&hellip;</p>
+      <ul id="list-items" class="list-items"></ul>
+      <p class="button-row">
+        <a class="button" id="list-continue" href="contact.html" hidden>Continue to Pre-Order Form</a>
+        <button class="button button-outline" id="list-clear" type="button" hidden>Clear My List</button>
+      </p>
+      <noscript><p>Turn on JavaScript to build a pre-order list. You can still send a request on the <a href="contact.html">contact page</a>.</p></noscript>
+    </section>
+
     <section class="signature" aria-labelledby="signature-heading">
       <h2 id="signature-heading">Our Signature Loaf</h2>
       <div class="signature-body">
@@ -52,14 +64,17 @@
       <article>
         <h3>Signature Country Loaf</h3>
         <p>A crackling crust and a soft, tangy crumb from a long, slow fermentation.</p>
+        <button class="button button-small add-to-list" type="button" data-id="signature-country-loaf" data-name="Signature Country Loaf" data-category="Breads">Add to my list</button>
       </article>
       <article>
         <h3>Seeded Multigrain</h3>
         <p>Hearty whole-grain bread topped with flax and sunflower seeds, great for sandwiches and toast.</p>
+        <button class="button button-small add-to-list" type="button" data-id="seeded-multigrain" data-name="Seeded Multigrain" data-category="Breads">Add to my list</button>
       </article>
       <article>
         <h3>Soft Dinner Rolls</h3>
         <p>Buttery rolls sold by the half dozen or dozen, ideal for family dinners and gatherings.</p>
+        <button class="button button-small add-to-list" type="button" data-id="soft-dinner-rolls" data-name="Soft Dinner Rolls" data-category="Breads">Add to my list</button>
       </article>
     </section>
 
@@ -69,14 +84,17 @@
       <article>
         <h3>Butter Croissants &amp; Morning Pastries</h3>
         <p>Flaky, golden, and made fresh for the morning commute.</p>
+        <button class="button button-small add-to-list" type="button" data-id="butter-croissants" data-name="Butter Croissants &amp; Morning Pastries" data-category="Pastries &amp; Cookies">Add to my list</button>
       </article>
       <article>
         <h3>Cookies by the Dozen</h3>
         <p>Chocolate chip, shortbread, and glazed seasonal favorites, packed to order.</p>
+        <button class="button button-small add-to-list" type="button" data-id="cookies-by-the-dozen" data-name="Cookies by the Dozen" data-category="Pastries &amp; Cookies">Add to my list</button>
       </article>
       <article>
         <h3>Weekend Cookie &amp; Pastry Tray</h3>
         <p>A shareable assortment that serves 8 to 12 people. Pre-order required.</p>
+        <button class="button button-small add-to-list" type="button" data-id="weekend-cookie-pastry-tray" data-name="Weekend Cookie &amp; Pastry Tray" data-category="Pastries &amp; Cookies">Add to my list</button>
       </article>
     </section>
 
@@ -86,10 +104,12 @@
       <article>
         <h3>Classic Celebration Cakes</h3>
         <p>Vanilla, chocolate, and lemon cakes decorated by hand for birthdays and special days.</p>
+        <button class="button button-small add-to-list" type="button" data-id="classic-celebration-cakes" data-name="Classic Celebration Cakes" data-category="Cakes &amp; Celebration Orders">Add to my list</button>
       </article>
       <article>
         <h3>Event &amp; Catering Platters</h3>
         <p>Pastry boxes and dessert trays for offices, school events, and community gatherings. Please order at least five days ahead.</p>
+        <button class="button button-small add-to-list" type="button" data-id="event-catering-platters" data-name="Event &amp; Catering Platters" data-category="Cakes &amp; Celebration Orders">Add to my list</button>
       </article>
     </section>
 

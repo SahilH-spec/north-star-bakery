@@ -38,6 +38,11 @@
   box-sizing: border-box;
 }
 
+/* The hidden attribute must always win, even over display rules below */
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -582,6 +587,153 @@ body > footer a:hover {
 
 body > footer a:focus-visible {
   outline-color: var(--cream);
+}
+
+/* --------------------------------------------------------------------------
+   11. Interactive features (Touchstone 4)
+   Styles for the pre-order list, form error messages, and status messages
+   that script.js adds to the page.
+   -------------------------------------------------------------------------- */
+
+/* Smaller button used inside product cards */
+.button-small {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.95rem;
+}
+
+/* Cards are columns so every "Add to my list" button lines up at the bottom */
+.card-section > article {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-section > article > p {
+  flex: 1 1 auto;
+}
+
+.card-section .add-to-list {
+  align-self: flex-start;
+  margin-top: var(--space-m);
+}
+
+/* Button in its "already on my list" state */
+.add-to-list.is-added {
+  border-color: var(--brown);
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.add-to-list.is-added:hover {
+  background: transparent;
+  color: var(--brown);
+}
+
+/* My Pre-Order List panel */
+.preorder-list {
+  padding: var(--space-m);
+  border: 2px solid var(--tan);
+  border-radius: var(--radius);
+}
+
+.preorder-list > p:last-of-type {
+  margin-bottom: 0;
+}
+
+.list-items {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 var(--space-m);
+  padding: 0;
+  list-style: none;
+}
+
+.list-items:empty {
+  display: none;
+}
+
+.list-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s) var(--space-m);
+  padding: var(--space-s) 0;
+  border-bottom: 1px solid var(--tan);
+}
+
+/* A button that looks like a link (used for "Remove") */
+.link-button {
+  padding: 0.5rem;
+  border: 0;
+  background: none;
+  color: var(--crust);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  color: var(--brown);
+}
+
+/* Form validation messages */
+.error-message {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--crust);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.error-message:empty {
+  display: none;
+}
+
+.error-message::before {
+  content: "Error: ";
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--crust);
+  border-style: dashed;
+}
+
+/* Message box above the form (success, or a summary of problems) */
+.form-status {
+  margin-bottom: var(--space-m);
+  padding: var(--space-m);
+  border: 2px solid var(--brown);
+  border-radius: var(--radius);
+  background: var(--brown);
+  color: var(--cream);
+  font-weight: 700;
+}
+
+.form-status.is-error {
+  background: var(--cream);
+  border-color: var(--crust);
+  color: var(--crust);
+}
+
+/* "Remember me" checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  margin: 0;
+  font-weight: 400;
+}
+
+input[type="checkbox"] {
+  flex: 0 0 1.5rem;
+  width: 1.5rem;
+  min-height: 0;
+  height: 1.5rem;
+  margin: 0;
+  accent-color: var(--brown);
 }
 
 /* ==========================================================================
